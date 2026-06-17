@@ -8,14 +8,14 @@ import { useEffect, useState } from "react";
 export default function PainelPage() {
   const { data: ultimaNota, isLoading, error } = useGetUltimaNota();
   const [agora, setAgora] = useState(() => Date.now());
-  
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setAgora(Date.now());
-      }, 1000);
-  
-      return () => clearInterval(interval);
-    }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAgora(Date.now());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   if (isLoading) {
     return <LoadingPainel />;
@@ -35,14 +35,11 @@ export default function PainelPage() {
   });
 
   const mostrarNota =
-    agora -
-      new Date(ultimaNota.publicadaEm).getTime()
-    < 60_000;
+    agora - new Date(ultimaNota.publicadaEm).getTime() < 60_000;
 
   if (!mostrarNota) {
     return <TelaDescanso />;
   }
-
 
   return (
     <div className="relative min-h-dvh overflow-x-hidden bg-black text-white">
@@ -81,7 +78,7 @@ export default function PainelPage() {
         </div>
 
         <div className="mt-4 md:mt-8 flex flex-1 flex-col justify-center">
-          <div className="mx-auto flex h-full w-full max-w-7xl flex-col rounded-[32px] border border-white/10 bg-white/5 px-8 md:p-8 shadow-2xl backdrop-blur-xl">
+          <div className="flex h-full w-full max-w-[1800px] mx-auto flex-col rounded-[32px] border border-white/10 bg-white/5 px-8 md:p-8 shadow-2xl backdrop-blur-xl">
             <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
               <div className="md:flex-1">
                 <div className="mt-10 flex items-start justify-between gap-8">

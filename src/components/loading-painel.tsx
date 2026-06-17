@@ -4,11 +4,7 @@ export default function LoadingPainel() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.15),transparent_40%)]" />
 
       <div className="relative z-10 flex flex-col items-center text-center">
-        <img
-          src="/fpg.png"
-          alt="FPG"
-          className="h-28 w-28 object-contain"
-        />
+        <img src="/fpg.png" alt="FPG" className="h-28 w-28 object-contain" />
 
         <p className="mt-8 text-sm font-black uppercase tracking-[0.45em] text-primary/80">
           Federação Paulista de Ginástica

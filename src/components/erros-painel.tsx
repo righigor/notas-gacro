@@ -19,7 +19,8 @@ export default function ErrorPainel() {
         </h1>
 
         <p className="mt-6 max-w-2xl text-lg text-zinc-400">
-          O sistema de apuração está tentando restabelecer conexão automaticamente.
+          O sistema de apuração está tentando restabelecer conexão
+          automaticamente.
         </p>
 
         <div className="mt-10 flex items-center gap-3 rounded-full border border-red-500/20 bg-red-500/10 px-6 py-3 text-sm font-semibold text-red-300 backdrop-blur-md">

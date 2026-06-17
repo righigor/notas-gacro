@@ -13,11 +13,7 @@ export function SemNotaPainel() {
           </span>
         </div>
 
-        <img
-          src="/fpg.png"
-          alt="FPG"
-          className="h-28 w-28 object-contain"
-        />
+        <img src="/fpg.png" alt="FPG" className="h-28 w-28 object-contain" />
 
         <p className="mt-2 text-sm font-black uppercase tracking-[0.45em] text-primary/80">
           Federação Paulista de Ginástica

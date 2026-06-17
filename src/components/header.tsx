@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 
-
 export default function Header() {
   return (
     <header className="flex justify-center md:grid md:grid-cols-3 p-4 items-center w-full max-w-7xl mx-auto">
@@ -11,11 +10,17 @@ export default function Header() {
       </div>
 
       <div className="flex justify-center gap-4">
-        <Link to="/copa-sp" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors hover:underline">
+        <Link
+          to="/copa-sp"
+          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors hover:underline"
+        >
           <span>Copa SP</span>
         </Link>
         <span className="text-muted-foreground">-</span>
-        <Link to="/trofeu-sp" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors hover:underline">
+        <Link
+          to="/trofeu-sp"
+          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors hover:underline"
+        >
           <span>Troféu SP</span>
         </Link>
       </div>
@@ -28,4 +33,3 @@ export default function Header() {
     </header>
   );
 }
-
