@@ -427,3 +427,9 @@ export const DICIONARIO_CATEGORIAS_TROFEU: Record<string, CategoriaCopaConfig> =
 export const listaCategoriasCopaSabado = Object.values(DICIONARIO_CATEGORIAS_COPA).filter(c => c.id.endsWith("-sabado"));
 export const listaCategoriasCopaDomingo = Object.values(DICIONARIO_CATEGORIAS_COPA).filter(c => c.id.endsWith("-domingo"));
 export const listaCategoriasTrofeu = Object.values(DICIONARIO_CATEGORIAS_TROFEU);
+
+export const TODAS_CATEGORIAS = [
+  ...listaCategoriasCopaSabado,
+  ...listaCategoriasCopaDomingo,
+  ...listaCategoriasTrofeu,
+];

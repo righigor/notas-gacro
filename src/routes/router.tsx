@@ -4,7 +4,7 @@ import CategoriaPage from "@/pages/categoria-page";
 import CategoriaTrofeuPage from "@/pages/categoria-trofeu-page";
 import CopaSPPage from "@/pages/copa-sp-page";
 import TrofeuSPPage from "@/pages/trofeu-sp-page";
-// import PainelPage from "@/pages/painel-page";
+import PainelPage from "@/pages/painel-page";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Toaster } from "sonner";
 
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/painel",
-    // element: <PainelPage />,
+    element: <PainelPage />,
   }
 ]);
 

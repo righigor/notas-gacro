@@ -5,17 +5,17 @@ export default function LoadingPainel() {
 
       <div className="relative z-10 flex flex-col items-center text-center">
         <img
-          src="/fmg-logo.jpg"
-          alt="FMG"
+          src="/fpg.png"
+          alt="FPG"
           className="h-28 w-28 object-contain"
         />
 
         <p className="mt-8 text-sm font-black uppercase tracking-[0.45em] text-primary/80">
-          Federação Mineira de Ginástica
+          Federação Paulista de Ginástica
         </p>
 
         <h1 className="mt-4 text-4xl font-black uppercase tracking-tight text-white">
-          Torneio Início de Ginástica Rítmica 2026
+          Troféu SP e Copa SP de Ginástica Acrobática 2026
         </h1>
 
         <div className="mt-10 h-14 w-14 animate-spin rounded-full border-4 border-primary/20 border-t-primary" />

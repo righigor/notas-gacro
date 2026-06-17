@@ -14,17 +14,17 @@ export function SemNotaPainel() {
         </div>
 
         <img
-          src="/fmg-logo.jpg"
-          alt="FMG"
+          src="/fpg.png"
+          alt="FPG"
           className="h-28 w-28 object-contain"
         />
 
         <p className="mt-2 text-sm font-black uppercase tracking-[0.45em] text-primary/80">
-          Federação Mineira de Ginástica
+          Federação Paulista de Ginástica
         </p>
 
         <h1 className="mt-2 max-w-5xl text-2xl font-black uppercase leading-tight tracking-tight text-white">
-          Torneio Início de Ginástica Rítmica 2026
+          Troféu SP e Copa SP de Ginástica Acrobática 2026
         </h1>
 
         <div className="mt-4 flex max-w-2xl flex-col items-center rounded-[32px] border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-xl">
@@ -44,7 +44,7 @@ export function SemNotaPainel() {
 
         {/* Rodapé */}
         <div className="absolute bottom-6 right-8 text-sm text-zinc-500">
-          Sistema de Apuração FMG
+          Sistema de Apuração FPG
         </div>
       </div>
     </div>

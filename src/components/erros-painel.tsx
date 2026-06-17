@@ -5,8 +5,8 @@ export default function ErrorPainel() {
 
       <div className="relative z-10 flex max-w-3xl flex-col items-center text-center">
         <img
-          src="/fmg-logo.jpg"
-          alt="FMG"
+          src="/fpg.png"
+          alt="FPG"
           className="h-28 w-28 object-contain opacity-90"
         />
 
