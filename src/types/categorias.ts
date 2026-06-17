@@ -47,35 +47,34 @@ export interface DadosCategoria {
 
 export interface ResultadoCopa {
   ordem: string;
-
   ginasta: string;
-
   clubeEscola: string;
-
   prova: string;
-
   categoria: string;
-
   tipo: "Estático" | "Dinâmico" | "Combinado";
-
   notaA: string;
-
   notaE: string;
-
   notaD: string;
-
   penalidade: string;
-
   notaFinal: string;
-
   classificacao: string;
-
   notaValidada: boolean;
-
   publicadaEm: string;
 }
 
 export interface DadosCategoriaCopa {
   categoria: string;
   resultados: ResultadoCopa[];
+  total?: ResultadoTotal[];
+}
+
+
+export interface ResultadoTotal {
+  ginasta: string;
+  clubeEscola: string;
+  notaTipoUm: string;
+  notaTipoDois: string;
+  notaTotal: string;
+  classificacao: string;
+  totalValidado: boolean;
 }

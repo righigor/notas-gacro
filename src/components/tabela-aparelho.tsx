@@ -17,8 +17,6 @@ interface TabelaAparelhoProps {
 }
 
 export default function TabelaAparelho({ data, titulo }: TabelaAparelhoProps) {
-
-  console.log("Dados recebidos para tabela:", data);
   const resultadosOrdenados = [...data].sort((a, b) => {
     const aValidada = a.notaValidada;
     const bValidada = b.notaValidada;
@@ -40,8 +38,6 @@ export default function TabelaAparelho({ data, titulo }: TabelaAparelhoProps) {
 
     return Number(a.ordem) - Number(b.ordem);
   });
-
-  console.log("Dados ordenados para tabela:", resultadosOrdenados);
   
   return (
     <Card shadow-sm>
@@ -87,7 +83,7 @@ export default function TabelaAparelho({ data, titulo }: TabelaAparelhoProps) {
                 </TableCell>
                 <TableCell>
                   <div className="font-semibold text-sm text-foreground">
-                    {row.ginasta}
+                    {row.ginasta || "A definir"}
                   </div>
                   <div className="text-xs text-muted-foreground">
                     {row.clubeEscola}

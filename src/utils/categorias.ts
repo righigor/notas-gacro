@@ -1,10 +1,9 @@
 import type { ColunasCategoria, ColunasCopaCategoria } from "@/types/colunas-categorias";
-import { COLUNAS_COPA_SABADO, COLUNAS_MANHA, COLUNAS_TARDE } from "./colunas-categorias";
+import { COLUNAS_COPA_SABADO } from "./colunas-categorias";
 
-const SPREADSHEET_ID_MANHA = "1KjAu5uYirmXc8wMk5cDdJH8orrIkH_nHYk4AZpdY3zo";
-const SPREADSHEET_ID_TARDE = "126UxmMKBwqnLpyKe2-cbdXI8yuFR197jjXuLPgVr4II";
 const SPREADSHEET_ID_COPA_SABADO = "10gVZRtkieGq3BigmFqiGZOYK9T_z1xXlGUty6zrqQ9A";
 const SPREADSHEET_ID_COPA_DOMINGO = "1wgMWCajmF8eh3ZvRWGj9lZgYQz5lVAp9WJJ9jzGfxu4";
+const SPREADSHEET_ID_TROFEU = "1vc5hcshhI-E6ltq_5u3rKzelh6HV-yS-dlmttkESQZ4";
 
 export interface CategoriaConfig {
   id: string;
@@ -19,7 +18,9 @@ export interface CategoriaConfig {
 export type TipoApresentacao =
   | "Combinado"
   | "Estático"
-  | "Dinâmico";
+  | "Dinâmico"
+  | "Solo A"
+  | "Solo B";
 
 export interface CategoriaCopaConfig {
   id: string;
@@ -222,6 +223,38 @@ export const DICIONARIO_CATEGORIAS_COPA: Record<string, CategoriaCopaConfig> = {
     abaSheets: "N2 Adu - DF",
     tipo: ["Combinado"],
     colunas: COLUNAS_COPA_SABADO
+  },
+  "na-pre-inf-df-domingo": {
+    id: "na-pre-inf-df-domingo",
+    nomeExibicao: "Nível Avançado - Pré-Infantil - Dupla Feminina",
+    spreadsheetId: SPREADSHEET_ID_COPA_DOMINGO,
+    abaSheets: "NA Pre Inf - DF",
+    tipo: ["Combinado"],
+    colunas: COLUNAS_COPA_SABADO
+  },
+  "na-pre-inf-gf-domingo": {
+    id: "na-pre-inf-gf-domingo",
+    nomeExibicao: "Nível Avançado - Pré-Infantil - Grupo Feminino",
+    spreadsheetId: SPREADSHEET_ID_COPA_DOMINGO,
+    abaSheets: "NA Pre Inf - GF",
+    tipo: ["Combinado"],
+    colunas: COLUNAS_COPA_SABADO
+  },
+  "na-inf-pf-domingo":{
+    id: "na-inf-pf-domingo",
+    nomeExibicao: "Nível Avançado - Infantil - Par Feminino",
+    spreadsheetId: SPREADSHEET_ID_COPA_DOMINGO,
+    abaSheets: "NA Inf - PF",
+    tipo: ["Combinado"],
+    colunas: COLUNAS_COPA_SABADO
+  },
+  "na-inf-gf-domingo":{
+    id: "na-inf-gf-domingo",
+    nomeExibicao: "Nível Avançado - Infantil - Grupo Feminino",
+    spreadsheetId: SPREADSHEET_ID_COPA_DOMINGO,
+    abaSheets: "NA Inf - GF",
+    tipo: ["Combinado"],
+    colunas: COLUNAS_COPA_SABADO
   }
 }
 
@@ -324,133 +357,73 @@ export const DICIONARIO_CATEGORIAS_COPA_DOMINGO: Record<string, CategoriaCopaCon
   }
 }
 
-
-export const DICIONARIO_CATEGORIAS: Record<string, CategoriaConfig> = {
-  "inf-n1-12-anos": {
-    id: "inf-n1-12-anos",
-    nomeExibicao: "Infantil N.1 - 12 Anos",
-    spreadsheetId: SPREADSHEET_ID_MANHA,
-    abaSheets: "INF N1 - 12 ANOS",
-    aparelhos: ["Mãos Livres", "Fita"],
-    periodo: "Manhã",
-    colunas: COLUNAS_MANHA
+export const DICIONARIO_CATEGORIAS_TROFEU: Record<string, CategoriaCopaConfig> = {
+  "ni-pre-inf-gf": {
+    id: "ni-pre-inf-gf",
+    nomeExibicao: "Nível Intermediário - Pré-Infantil - Grupo Feminino",
+    spreadsheetId: SPREADSHEET_ID_TROFEU,
+    abaSheets: "NI Pre Inf - GF",
+    tipo: ["Combinado"],
+    colunas: COLUNAS_COPA_SABADO
   },
-  "pre-n2": {
-    id: "pre-n2",
-    nomeExibicao: "Pré-Infantil N.2",
-    spreadsheetId: SPREADSHEET_ID_MANHA,
-    abaSheets: "PRE N2",
-    aparelhos: ["Mãos Livres"],
-    periodo: "Manhã",
-    colunas: COLUNAS_MANHA
+  "ni-pre-inf-df": {
+    id: "ni-pre-inf-df",
+    nomeExibicao: "Nível Intermediário - Pré-Infantil - Dupla Feminina",
+    spreadsheetId: SPREADSHEET_ID_TROFEU,
+    abaSheets: "NI Pre Inf - DF",
+    tipo: ["Combinado"],
+    colunas: COLUNAS_COPA_SABADO
   },
-  "pre-n3": {
-    id: "pre-n3",
-    nomeExibicao: "Pré-Infantil N.3",
-    spreadsheetId: SPREADSHEET_ID_MANHA,
-    abaSheets: "PRE N3",
-    aparelhos: ["Mãos Livres"],
-    periodo: "Manhã",
-    colunas: COLUNAS_MANHA
+  "pre-inf-pf-solo": {
+    id: "pre-inf-pf-solo",
+    nomeExibicao: "Pré-Infantil - Dupla Feminina - Solo",
+    spreadsheetId: SPREADSHEET_ID_TROFEU,
+    abaSheets: "Pre Inf - PF Solo",
+    tipo: ["Solo A", "Solo B"],
+    colunas: COLUNAS_COPA_SABADO
   },
-  "inf-n2-12-anos": {
-    id: "inf-n2-12-anos",
-    nomeExibicao: "Infantil N.2 - 12 Anos",
-    spreadsheetId: SPREADSHEET_ID_MANHA,
-    abaSheets: "INF N2 - 12 ANOS",
-    aparelhos: ["Mãos Livres"],
-    periodo: "Manhã",
-    colunas: COLUNAS_MANHA
+  "pre-inf-gf-solo": {
+    id: "pre-inf-gf-solo",
+    nomeExibicao: "Pré-Infantil - Grupo Feminino - Solo",
+    spreadsheetId: SPREADSHEET_ID_TROFEU,
+    abaSheets: "Pre Inf - GF Solo",
+    tipo: ["Solo A", "Solo B"],
+    colunas: COLUNAS_COPA_SABADO
   },
-  "inf-n3-12-anos": {
-    id: "inf-n3-12-anos",
-    nomeExibicao: "Infantil N.3 - 12 Anos",
-    spreadsheetId: SPREADSHEET_ID_MANHA,
-    abaSheets: "INF N3 - 12 ANOS",
-    aparelhos: ["Mãos Livres"],
-    periodo: "Manhã",
-    colunas: COLUNAS_MANHA
+  "inf-pf-solo": {
+    id: "inf-pf-solo",
+    nomeExibicao: "Infantil - Par Feminino - Solo",
+    spreadsheetId: SPREADSHEET_ID_TROFEU,
+    abaSheets: "Inf - PF Solo",
+    tipo: ["Solo A", "Solo B"],
+    colunas: COLUNAS_COPA_SABADO
   },
-
-  // ==========================================
-  // PERÍODO DA TARDE
-  // ==========================================
-  "juvenil-n1": {
-    id: "juvenil-n1",
-    nomeExibicao: "Juvenil N.1",
-    spreadsheetId: SPREADSHEET_ID_TARDE,
-    abaSheets: "JUV N1",
-    aparelhos: ["Bola", "Maças"],
-    periodo: "Tarde",
-    colunas: COLUNAS_TARDE
+  "inf-gf-solo": {
+    id: "inf-gf-solo",
+    nomeExibicao: "Infantil - Grupo Feminino - Solo",
+    spreadsheetId: SPREADSHEET_ID_TROFEU,
+    abaSheets: "Inf - GF Solo",
+    tipo: ["Solo A", "Solo B"],
+    colunas: COLUNAS_COPA_SABADO
   },
-  "adulto-n1": {
-    id: "adulto-n1",
-    nomeExibicao: "Adulto N.1",
-    spreadsheetId: SPREADSHEET_ID_TARDE,
-    abaSheets: "ADU N1",
-    aparelhos: ["Arco", "Fita"],
-    periodo: "Tarde",
-    colunas: COLUNAS_TARDE
+  "ni-inf-df": {
+    id: "ni-inf-df",
+    nomeExibicao: "Nível Intermediário - Infantil - Dupla Feminina",
+    spreadsheetId: SPREADSHEET_ID_TROFEU,
+    abaSheets: "NI Inf - DF",
+    tipo: ["Combinado"],
+    colunas: COLUNAS_COPA_SABADO
   },
-  "inf-n2-13-anos": {
-    id: "inf-n2-13-anos",
-    nomeExibicao: "Infantil N.2 - 13 Anos",
-    spreadsheetId: SPREADSHEET_ID_TARDE,
-    abaSheets: "INF N2 - 13 ANOS",
-    aparelhos: ["Arco"],
-    periodo: "Tarde",
-    colunas: COLUNAS_TARDE
+  "ni-inf-gf": {
+    id: "ni-inf-gf",
+    nomeExibicao: "Nível Intermediário - Infantil - Grupo Feminino",
+    spreadsheetId: SPREADSHEET_ID_TROFEU,
+    abaSheets: "NI Inf - GF",
+    tipo: ["Combinado"],
+    colunas: COLUNAS_COPA_SABADO
   },
-  "inf-n3-13-anos": {
-    id: "inf-n3-13-anos",
-    nomeExibicao: "Infantil N.3 - 13 Anos",
-    spreadsheetId: SPREADSHEET_ID_TARDE,
-    abaSheets: "INF N3 - 13 ANOS",
-    aparelhos: ["Arco"],
-    periodo: "Tarde",
-    colunas: COLUNAS_TARDE
-  },
-  "juvenil-n3": {
-    id: "juvenil-n3",
-    nomeExibicao: "Juvenil N.3",
-    spreadsheetId: SPREADSHEET_ID_TARDE,
-    abaSheets: "JUV N3",
-    aparelhos: ["Maças"],
-    periodo: "Tarde",
-    colunas: COLUNAS_TARDE
-  },
-  "juvenil-n2": {
-    id: "juvenil-n2",
-    nomeExibicao: "Juvenil N.2",
-    spreadsheetId: SPREADSHEET_ID_TARDE,
-    abaSheets: "JUV N2",
-    aparelhos: ["Maças"],
-    periodo: "Tarde",
-    colunas: COLUNAS_TARDE
-  },
-  "adulto-n2": {
-    id: "adulto-n2",
-    nomeExibicao: "Adulto N.2",
-    spreadsheetId: SPREADSHEET_ID_TARDE,
-    abaSheets: "ADU N2",
-    aparelhos: ["Fita"],
-    periodo: "Tarde",
-    colunas: COLUNAS_TARDE
-  },
-  "adulto-n3": {
-    id: "adulto-n3",
-    nomeExibicao: "Adulto N.3",
-    spreadsheetId: SPREADSHEET_ID_TARDE,
-    abaSheets: "ADU N3",
-    aparelhos: ["Fita"],
-    periodo: "Tarde",
-    colunas: COLUNAS_TARDE
-  },
-};
-
-export const listaCategoriasManha = Object.values(DICIONARIO_CATEGORIAS).filter(c => c.periodo === "Manhã");
-export const listaCategoriasTarde = Object.values(DICIONARIO_CATEGORIAS).filter(c => c.periodo === "Tarde");
+}
 
 export const listaCategoriasCopaSabado = Object.values(DICIONARIO_CATEGORIAS_COPA).filter(c => c.id.endsWith("-sabado"));
 export const listaCategoriasCopaDomingo = Object.values(DICIONARIO_CATEGORIAS_COPA).filter(c => c.id.endsWith("-domingo"));
+export const listaCategoriasTrofeu = Object.values(DICIONARIO_CATEGORIAS_TROFEU);

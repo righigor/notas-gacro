@@ -2,14 +2,15 @@ import { useParams, Link } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import TabelaAparelho from "@/components/tabela-aparelho";
-import { DICIONARIO_CATEGORIAS_COPA } from "@/utils/categorias";
+import { DICIONARIO_CATEGORIAS_TROFEU } from "@/utils/categorias";
 import { useNotasCategoria } from "@/hooks/use-get-notas";
 import LoadingTabela from "@/components/loading-tabela";
 import TabelaTotal from "@/components/tabela-total";
+import { cn } from "@/lib/utils";
 
-export default function CategoriaPage() {
+export default function CategoriaTrofeuPage() {
   const { id } = useParams<{ id: string }>();
-  const categoriaConfig = id ? DICIONARIO_CATEGORIAS_COPA[id] : undefined;
+  const categoriaConfig = id ? DICIONARIO_CATEGORIAS_TROFEU[id] : undefined;
 
   const { data, isLoading } = useNotasCategoria({ categoriaConfig });
 
@@ -29,15 +30,25 @@ export default function CategoriaPage() {
 
   const tipos = [...new Set(data.resultados.map((r) => r.tipo))];
 
-  const resultadosTipo1 = data.resultados.filter((r) => r.tipo === tipos[0]);
-  const resultadosTipo2 = data.resultados.filter((r) => r.tipo === tipos[1]);
+  const tiposValidos = tipos.filter((t) => ["Combinado", "Estático", "Dinâmico", "Solo A", "Solo B"].includes(t));
 
-  const temDoisTipos = tipos.length === 2;
+  const resultadosTipo1 = data.resultados.filter((r) => r.tipo === tiposValidos[0]);
+  const resultadosTipo2 = data.resultados.filter((r) => r.tipo === tiposValidos[1]);
+
+  const temDoisTipos = tiposValidos.length === 2;
+  const temTotal = data.total && data.total.length > 0;
+
+  console.log("Tipos encontrados:", tipos);
+  console.log("Tipos válidos:", tiposValidos);
+  console.log("Resultados Tipo 1:", resultadosTipo1);
+  console.log("Resultados Tipo 2:", resultadosTipo2);
+  console.log("Tem dois tipos?", temDoisTipos);
+  console.log("Tem total?", temTotal);
 
   return (
     <div className="container mx-auto px-4 py-6 max-w-4xl">
       <Link
-        to="/copa-sp"
+        to="/trofeu-sp"
         className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary mb-6 transition-colors"
       >
         <ChevronLeft className="size-4" />
@@ -45,7 +56,7 @@ export default function CategoriaPage() {
       </Link>
       <div className="space-y-1 mb-6">
         <div className="text-xs font-bold text-primary uppercase tracking-wider">
-          {categoriaConfig.id.endsWith("sabado") ? "Copa SP - Sábado" : "Copa SP - Domingo"}
+          Troféu SP
         </div>
         <h1 className="text-2xl font-black text-foreground uppercase tracking-tight">
           {data?.categoria}
@@ -57,32 +68,36 @@ export default function CategoriaPage() {
 
       {temDoisTipos ? (
         <Tabs defaultValue="tipo1" className="w-full space-y-4">
-          <TabsList className="grid w-full grid-cols-3">
+          <TabsList className={cn("grid w-full grid-cols-3", !temTotal && "grid-cols-2")}>
             <TabsTrigger value="tipo1" className="capitalize">
-              {tipos[0].toLowerCase()}
+              {tiposValidos[0].toLowerCase()}
             </TabsTrigger>
             <TabsTrigger value="tipo2" className="capitalize">
-              {tipos[1].toLowerCase()}
+              {tiposValidos[1].toLowerCase()}
             </TabsTrigger>
-            <TabsTrigger value="total" className="capitalize">
-              Total
-            </TabsTrigger>
+            {temTotal && (
+              <TabsTrigger value="total" className="capitalize">
+                Total
+              </TabsTrigger>
+            )}
           </TabsList>
 
           <TabsContent value="tipo1">
-            <TabelaAparelho data={resultadosTipo1} titulo={tipos[0]} />
+            <TabelaAparelho data={resultadosTipo1} titulo={tiposValidos[0]} />
           </TabsContent>
 
           <TabsContent value="tipo2">
-            <TabelaAparelho data={resultadosTipo2} titulo={tipos[1]} />
+            <TabelaAparelho data={resultadosTipo2} titulo={tiposValidos[1]} />
           </TabsContent>
 
-          <TabsContent value="total">
-            <TabelaTotal data={data.total!} tipos={tipos} />
-          </TabsContent>
+          {temTotal && (
+            <TabsContent value="total">
+              <TabelaTotal data={data.total!} tipos={tiposValidos} />
+            </TabsContent>
+          )}
         </Tabs>
       ) : (
-        <TabelaAparelho data={data.resultados} titulo={tipos[0]} />
+        <TabelaAparelho data={data.resultados} titulo={tiposValidos[0]} />
       )}
     </div>
   );
