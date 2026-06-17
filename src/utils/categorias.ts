@@ -1,19 +1,9 @@
-import type { ColunasCategoria, ColunasCopaCategoria } from "@/types/colunas-categorias";
+import type { ColunasCopaCategoria } from "@/types/colunas-categorias";
 import { COLUNAS_COPA_SABADO } from "./colunas-categorias";
 
 const SPREADSHEET_ID_COPA_SABADO = "10gVZRtkieGq3BigmFqiGZOYK9T_z1xXlGUty6zrqQ9A";
 const SPREADSHEET_ID_COPA_DOMINGO = "1wgMWCajmF8eh3ZvRWGj9lZgYQz5lVAp9WJJ9jzGfxu4";
 const SPREADSHEET_ID_TROFEU = "1vc5hcshhI-E6ltq_5u3rKzelh6HV-yS-dlmttkESQZ4";
-
-export interface CategoriaConfig {
-  id: string;
-  nomeExibicao: string;
-  spreadsheetId: string;
-  abaSheets: string;
-  aparelhos: string[];
-  periodo: "Manhã" | "Tarde";
-  colunas: ColunasCategoria
-}
 
 export type TipoApresentacao =
   | "Combinado"

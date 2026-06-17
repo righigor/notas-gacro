@@ -5,7 +5,7 @@ import type {
 } from "@/types/categorias";
 import type { CategoriaCopaConfig, TipoApresentacao } from "./categorias";
 
-const TIPOS = ["Estático", "Dinâmico", "Combinado"] as const;
+const TIPOS = ["Estático", "Dinâmico", "Combinado", "Solo A", "Solo B"] as const;
 
 type TipoNome = (typeof TIPOS)[number];
 
