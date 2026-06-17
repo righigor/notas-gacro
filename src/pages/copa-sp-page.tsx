@@ -21,10 +21,10 @@ export default function CopaSPPage() {
           <p className="text-xs font-bold tracking-widest text-primary uppercase">
             Federação Paulista de Ginástica
           </p>
-          <h1 className="text-2xl font-black tracking-tight sm:text-4xl text-foreground uppercase">
+          <h1 className="text-2xl font-black sm:text-4xl uppercase">
             Copa São Paulo <br className="sm:hidden" />
             <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-primary/80">
-              de Ginástica Acrobática Nível 1 e 2 2026
+              de Ginástica Acrobática Nível 1 <span className="lowercase">e</span> 2 - 2026
             </span>
           </h1>
         </div>

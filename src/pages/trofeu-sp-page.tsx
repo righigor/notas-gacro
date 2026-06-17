@@ -6,17 +6,19 @@ export default function TrofeuSPPage() {
   return (
     <div className="container mx-auto px-4 py-6 max-w-4xl min-h-[calc(100vh-80px)] flex flex-col justify-center gap-8">
       <div className="flex flex-col items-center text-center space-y-4">
+        <Link to="/">
         <img
           src="/fpg.png"
           alt="Logo FPG"
           className="relative size-24 rounded-xl border-2 border-background shadow-lg"
-        />
+          />
+          </Link>
 
         <div className="space-y-1">
           <p className="text-xs font-bold tracking-widest text-primary uppercase">
             Federação Paulista de Ginástica
           </p>
-          <h1 className="text-2xl font-black tracking-tight sm:text-4xl text-foreground uppercase">
+          <h1 className="text-2xl font-black sm:text-4xl uppercase">
             Troféu São Paulo <br className="sm:hidden" />
             <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-primary/80">
               de Ginástica Acrobática 2026
