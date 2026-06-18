@@ -30,7 +30,7 @@ export default function CategoriaTrofeuPage() {
 
   const tipos = [...new Set(data.resultados.map((r) => r.tipo))];
 
-  const tiposValidos = tipos.filter((t) => ["Combinado", "Estático", "Dinâmico", "Solo A", "Solo B"].includes(t));
+  const tiposValidos = tipos.filter((t) => ["Combinado", "Estático", "Dinâmico", "Solo A", "Solo B", "Cominado - Domingo"].includes(t));
 
   const resultadosTipo1 = data.resultados.filter((r) => r.tipo === tiposValidos[0]);
   const resultadosTipo2 = data.resultados.filter((r) => r.tipo === tiposValidos[1]);

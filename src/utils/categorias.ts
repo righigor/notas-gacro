@@ -10,7 +10,9 @@ export type TipoApresentacao =
   | "Estático"
   | "Dinâmico"
   | "Solo A"
-  | "Solo B";
+  | "Solo B"
+  | "Combinado - Domingo"
+  | "Combinado - Sábado"
 
 export interface CategoriaCopaConfig {
   id: string;

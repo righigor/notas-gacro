@@ -6,6 +6,7 @@ import { DICIONARIO_CATEGORIAS_COPA } from "@/utils/categorias";
 import { useNotasCategoria } from "@/hooks/use-get-notas";
 import LoadingTabela from "@/components/loading-tabela";
 import TabelaTotal from "@/components/tabela-total";
+import { formatarTipo } from "@/utils/formatar-tipo";
 
 export default function CategoriaPage() {
   const { id } = useParams<{ id: string }>();
@@ -35,7 +36,7 @@ export default function CategoriaPage() {
   const temDoisTipos = tipos.length === 2;
 
   return (
-    <div className="container mx-auto px-4 py-6 max-w-4xl">
+    <div className="container mx-auto px-4 py-6 max-w-5xl">
       <Link
         to="/copa-sp"
         className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary mb-6 transition-colors"
@@ -59,10 +60,10 @@ export default function CategoriaPage() {
         <Tabs defaultValue="tipo1" className="w-full space-y-4">
           <TabsList className="grid w-full grid-cols-3">
             <TabsTrigger value="tipo1" className="capitalize">
-              {tipos[0].toLowerCase()}
+              {formatarTipo(tipos[0])}
             </TabsTrigger>
             <TabsTrigger value="tipo2" className="capitalize">
-              {tipos[1].toLowerCase()}
+              {formatarTipo(tipos[1])}
             </TabsTrigger>
             <TabsTrigger value="total" className="capitalize">
               Total

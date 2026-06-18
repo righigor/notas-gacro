@@ -5,7 +5,7 @@ import type {
 } from "@/types/categorias";
 import type { CategoriaCopaConfig, TipoApresentacao } from "./categorias";
 
-const TIPOS = ["Estático", "Dinâmico", "Combinado", "Solo A", "Solo B"] as const;
+const TIPOS = ["Estático", "Dinâmico", "Combinado", "Solo A", "Solo B", "Combinado - Domingo", "Combinado - Sábado"] as const;
 
 type TipoNome = (typeof TIPOS)[number];
 
@@ -48,6 +48,7 @@ export function parseCategoriaCopaData(
     }
 
     if (lendoTabela) {
+      console.log(row[c.tipo])
       if (!row[c.ordem]) continue;
       resultados.push({
         ordem: row[c.ordem] ?? "",
