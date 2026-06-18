@@ -11,6 +11,8 @@ import {
 import { useMemo } from "react";
 import { parseClassificacao } from "@/utils/parse-class";
 import { useGetResultadosEquipeN2 } from "@/hooks/use-get-resultados-n2";
+import { LoadingCompeticao } from "@/components/loading-equipes";
+import { ErrorCompeticao } from "@/components/erro-competicao";
 
 export default function CopaN2EquipesPage() {
   const { data, isLoading, error } = useGetResultadosEquipeN2({
@@ -28,13 +30,13 @@ export default function CopaN2EquipesPage() {
     );
   }, [data]);
 
-  if (isLoading) return <p>carregando</p>;
-  if (error) return <p>erro</p>;
-  if (!data) return <p>sem dados</p>;
+  if (isLoading) return <LoadingCompeticao />;
+  if (error) return <ErrorCompeticao />;
+  if (!data) return <ErrorCompeticao />;
 
   return (
     <div className="container mx-auto p-8">
-      <h1 className="text-4xl font-black uppercase">
+      <h1 className="text-2xl md:text-4xl font-black uppercase">
         Copa São Paulo - Nível 2
       </h1>
 
@@ -55,18 +57,16 @@ export default function CopaN2EquipesPage() {
         <Top3Equipes data={sorted} />
       </div>
 
-      {/* separador */}
-      <div className="mt-10 flex items-center gap-4">
-        <div className="h-px flex-1 bg-border" />
+      <div className="mt-10 flex flex-col items-center gap-3 md:flex-row md:items-center md:gap-4">
+        <div className="h-px w-full bg-border md:flex-1" />
 
-        <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-muted-foreground">
+        <h2 className="text-sm text-center font-bold uppercase tracking-[0.3em] text-muted-foreground">
           Ranking Completo das equipes
         </h2>
 
-        <div className="h-px flex-1 bg-border" />
+        <div className="h-px w-full bg-border md:flex-1" />
       </div>
 
-      {/* tabela */}
       <div className="mt-8 rounded-3xl border overflow-hidden">
         <Table>
           <TableHeader>

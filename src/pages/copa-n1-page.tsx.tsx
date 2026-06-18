@@ -1,3 +1,5 @@
+import { ErrorCompeticao } from "@/components/erro-competicao";
+import { LoadingCompeticao } from "@/components/loading-equipes";
 import { Top3Equipes } from "@/components/top-3";
 import {
   TableHeader,
@@ -28,20 +30,20 @@ export default function CopaN1EquipesPage() {
   }, [data]);
 
   if (isLoading) {
-    return <p>carregando</p>;
+    return <LoadingCompeticao />;
   }
 
   if (error) {
-    return <p>erros</p>;
+    return <ErrorCompeticao />;
   }
 
   if (!data) {
-    return <p>erro</p>;
+    return <ErrorCompeticao />;
   }
 
   return (
     <div className="container mx-auto p-8">
-      <h1 className="text-4xl font-black uppercase">
+      <h1 className="text-2xl md:text-4xl font-black uppercase">
         Copa São Paulo - Nível 1
       </h1>
       <p className="mt-2 text-muted-foreground">
@@ -59,14 +61,14 @@ export default function CopaN1EquipesPage() {
         <Top3Equipes data={data} />
       </div>
 
-      <div className="mt-10 flex items-center gap-4">
-        <div className="h-px flex-1 bg-border" />
+      <div className="mt-10 flex flex-col items-center gap-3 md:flex-row md:items-center md:gap-4">
+        <div className="h-px w-full bg-border md:flex-1" />
 
-        <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-muted-foreground">
-          Ranking completo das equipes
+        <h2 className="text-sm text-center font-bold uppercase tracking-[0.3em] text-muted-foreground">
+          Ranking Completo das equipes
         </h2>
 
-        <div className="h-px flex-1 bg-border" />
+        <div className="h-px w-full bg-border md:flex-1" />
       </div>
 
       <div className="mt-8 rounded-3xl border overflow-hidden">
