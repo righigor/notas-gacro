@@ -7,6 +7,10 @@ import TrofeuSPPage from "@/pages/trofeu-sp-page";
 import PainelPage from "@/pages/painel-page";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Toaster } from "sonner";
+import EquipesHomePage from "@/pages/home-equipes-page";
+import CopaN1EquipesPage from "@/pages/copa-n1-page.tsx";
+import TrofeuEquipesPage from "@/pages/trofeu-resultados-page";
+import CopaN2EquipesPage from "@/pages/copa-n2-page";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +20,10 @@ const router = createBrowserRouter([
       {path: "/copa-sp", element: <CopaSPPage />},
       {path: "/trofeu-sp", element: <TrofeuSPPage />},
       {path: "/trofeu-sp/categorias/:id", element: <CategoriaTrofeuPage />},
+      {path: "/equipes", element: <EquipesHomePage />},
+      {path: "/equipes/copa-n1", element: <CopaN1EquipesPage />},
+      {path: "/equipes/copa-n2", element: <CopaN2EquipesPage />},
+      {path: "/equipes/trofeu", element: <TrofeuEquipesPage />}
     ],
   },
   {

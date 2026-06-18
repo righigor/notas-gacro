@@ -23,6 +23,13 @@ export default function Header() {
         >
           <span>Troféu SP</span>
         </Link>
+        <span className="text-muted-foreground">-</span>
+        <Link
+          to="/equipes"
+          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors hover:underline"
+        >
+          <span>Equipes</span>
+        </Link>
       </div>
 
       <div className="hidden md:flex justify-end text-right">

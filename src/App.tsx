@@ -3,7 +3,7 @@ import { ArrowRight, Trophy, Medal, Calendar } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="container mx-auto px-4 py-8 max-w-3xl min-h-screen flex flex-col justify-center gap-10">
+    <div className="container mx-auto px-4 py-8 max-w-5xl min-h-screen flex flex-col justify-center gap-10">
       <div className="text-center space-y-4">
         <img src="/fpg.png" alt="Logo FPG" className="mx-auto size-24" />
 
@@ -22,7 +22,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-5">
+      <div className="grid md:grid-cols-3 gap-3">
         <Link
           to="/copa-sp"
           className="
@@ -112,6 +112,29 @@ export default function Home() {
               transition-all
             "
             />
+          </div>
+        </Link>
+
+        <Link
+          to="/equipes"
+          className="group rounded-3xl border bg-card p-6 hover:border-primary transition-all"
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-xs uppercase tracking-widest text-primary font-bold">
+                Resultados
+              </p>
+
+              <h2 className="mt-1 text-2xl font-black uppercase">
+                Competição por Equipes
+              </h2>
+
+              <p className="mt-2 text-sm text-muted-foreground">
+                Copa São Paulo e Troféu São Paulo
+              </p>
+            </div>
+
+            <ArrowRight className="size-6 opacity-50 group-hover:translate-x-1 transition-all" />
           </div>
         </Link>
       </div>
