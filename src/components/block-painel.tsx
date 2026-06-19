@@ -1,51 +1,14 @@
-import BlockPainel from "@/components/block-painel";
-import { TelaDescanso } from "@/components/descanso-painel";
-import ErrorPainel from "@/components/erros-painel";
-import LoadingPainel from "@/components/loading-painel";
-import { SemNotaPainel } from "@/components/sem-nota-painel";
-import { useGetUltimaNota } from "@/hooks/use-get-ultima-nota";
-import { useEffect, useState } from "react";
+import type { UltimaNotaBlocks } from "@/types/blocks";
 
-export default function PainelPage() {
-  const { data: ultimaNota, isLoading, error } = useGetUltimaNota();
-  const [agora, setAgora] = useState(() => Date.now());
+interface BlockPainelProps {
+  ultimaNota: UltimaNotaBlocks
+}
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setAgora(Date.now());
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  if (isLoading) {
-    return <LoadingPainel />;
-  }
-
-  if (!ultimaNota) {
-    return <SemNotaPainel />;
-  }
-
-  if (error) {
-    return <ErrorPainel />;
-  }
-
+export default function BlockPainel({ ultimaNota }: BlockPainelProps) {
   const hora = new Date(ultimaNota.publicadaEm).toLocaleTimeString("pt-BR", {
     hour: "2-digit",
     minute: "2-digit",
   });
-
-  const mostrarNota =
-    agora - new Date(ultimaNota.publicadaEm).getTime() < 60_000;
-
-  if (!mostrarNota) {
-    return <TelaDescanso />;
-  }
-
-  if (ultimaNota.tipoTelao === "BLOCKS") {
-    return <BlockPainel ultimaNota={ultimaNota} />;
-  }
-
   return (
     <div className="relative min-h-dvh overflow-x-hidden bg-black text-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.15),transparent_40%)]" />
@@ -98,10 +61,6 @@ export default function PainelPage() {
 
                     <div className="mt-8 grid grid-cols-2 lg:grid-cols-5 gap-3">
                       {[
-                        {
-                          label: "A",
-                          value: ultimaNota.notaA,
-                        },
                         {
                           label: "E",
                           value: ultimaNota.notaE,

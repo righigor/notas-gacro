@@ -1,4 +1,4 @@
-import type { ColunasCategoria, ColunasCopaCategoria } from "@/types/colunas-categorias"
+import type { ColunasCategoria, ColunasCopaCategoria, ColunasTrofeuBlockCategoria } from "@/types/colunas-categorias"
 
 export const COLUNAS_MANHA: ColunasCategoria = {
   ordem: 1,
@@ -56,4 +56,23 @@ export const COLUNAS_COPA_SABADO: ColunasCopaCategoria = {
   classificacao: 19,
   notaValidada: 20,
   publicadaEm: 21,
+}
+
+export const COLUNAS_TROFEU_BLOCK_DOMINGO: ColunasTrofeuBlockCategoria = {
+  ordem: 0,
+  ginasta: 1,
+  clubeEscola: 2,
+  prova: 3,
+  categoria: 4,
+  tipo: 5,
+
+  notaE: 10,
+  notaD: 11,
+
+  penalidade: 12,
+  notaFinal: 13,
+
+  classificacao: 14,
+  notaValidada: 15,
+  publicadaEm: 16,
 }

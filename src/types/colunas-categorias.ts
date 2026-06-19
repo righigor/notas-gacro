@@ -38,3 +38,23 @@ export interface ColunasCopaCategoria {
 
   publicadaEm: number;
 }
+
+export interface ColunasTrofeuBlockCategoria {
+  ordem: number
+  ginasta: number
+  clubeEscola: number
+  prova: number
+  categoria: number
+  tipo: number
+
+  notaE: number
+  notaD: number
+
+  penalidade: number
+  notaFinal: number
+
+  classificacao: number
+  notaValidada: number
+
+  publicadaEm: number;
+}

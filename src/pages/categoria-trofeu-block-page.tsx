@@ -1,18 +1,18 @@
 import { useParams, Link } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import TabelaAparelho from "@/components/tabela-aparelho";
-import { DICIONARIO_CATEGORIAS_TROFEU } from "@/utils/categorias";
-import { useNotasCategoria } from "@/hooks/use-get-notas";
+import { DICIONARIO_CATEGORIAS_TROFEU_DOMINGO } from "@/utils/categorias";
 import LoadingTabela from "@/components/loading-tabela";
-import TabelaTotal from "@/components/tabela-total";
-import { cn } from "@/lib/utils";
+import { useNotasBlocks } from "@/hooks/use-get-notas-block";
+import TabelaAparelhoBlock from "@/components/tabela-aparelho-block";
 
-export default function CategoriaTrofeuPage() {
+export default function CategoriaTrofeuBlockPage() {
   const { id } = useParams<{ id: string }>();
-  const categoriaConfig = id ? DICIONARIO_CATEGORIAS_TROFEU[id] : undefined;
 
-  const { data, isLoading } = useNotasCategoria({ categoriaConfig });
+  console.log(id)
+  const categoriaConfig = id ? DICIONARIO_CATEGORIAS_TROFEU_DOMINGO[id] : undefined;
+
+  const { data, isLoading } = useNotasBlocks({categoriaConfig});
 
   if (!categoriaConfig) {
     return <div>Categoria não encontrada</div>;
@@ -26,7 +26,6 @@ export default function CategoriaTrofeuPage() {
     return <div>Sem dados</div>;
   }
 
-  console.log("Dados da categoria:", data);
 
   const tipos = [...new Set(data.resultados.map((r) => r.tipo))];
 
@@ -36,14 +35,6 @@ export default function CategoriaTrofeuPage() {
   const resultadosTipo2 = data.resultados.filter((r) => r.tipo === tiposValidos[1]);
 
   const temDoisTipos = tiposValidos.length === 2;
-  const temTotal = data.total && data.total.length > 0;
-
-  console.log("Tipos encontrados:", tipos);
-  console.log("Tipos válidos:", tiposValidos);
-  console.log("Resultados Tipo 1:", resultadosTipo1);
-  console.log("Resultados Tipo 2:", resultadosTipo2);
-  console.log("Tem dois tipos?", temDoisTipos);
-  console.log("Tem total?", temTotal);
 
   return (
     <div className="container mx-auto px-4 py-6 max-w-4xl">
@@ -68,36 +59,26 @@ export default function CategoriaTrofeuPage() {
 
       {temDoisTipos ? (
         <Tabs defaultValue="tipo1" className="w-full space-y-4">
-          <TabsList className={cn("grid w-full grid-cols-3", !temTotal && "grid-cols-2")}>
+          <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="tipo1" className="capitalize">
               {tiposValidos[0].toLowerCase()}
             </TabsTrigger>
             <TabsTrigger value="tipo2" className="capitalize">
               {tiposValidos[1].toLowerCase()}
             </TabsTrigger>
-            {temTotal && (
-              <TabsTrigger value="total" className="capitalize">
-                Total
-              </TabsTrigger>
-            )}
           </TabsList>
 
           <TabsContent value="tipo1">
-            <TabelaAparelho data={resultadosTipo1} titulo={tiposValidos[0]} />
+            <TabelaAparelhoBlock data={resultadosTipo1} titulo={tiposValidos[0]} />
           </TabsContent>
 
           <TabsContent value="tipo2">
-            <TabelaAparelho data={resultadosTipo2} titulo={tiposValidos[1]} />
+            <TabelaAparelhoBlock data={resultadosTipo2} titulo={tiposValidos[1]} />
           </TabsContent>
 
-          {temTotal && (
-            <TabsContent value="total">
-              <TabelaTotal data={data.total!} tipos={tiposValidos} />
-            </TabsContent>
-          )}
         </Tabs>
       ) : (
-        <TabelaAparelho data={data.resultados} titulo={tiposValidos[0]} />
+        <TabelaAparelhoBlock data={data.resultados} titulo={tiposValidos[0]} />
       )}
     </div>
   );

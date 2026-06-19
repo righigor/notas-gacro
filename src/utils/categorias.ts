@@ -1,5 +1,5 @@
-import type { ColunasCopaCategoria } from "@/types/colunas-categorias";
-import { COLUNAS_COPA_SABADO } from "./colunas-categorias";
+import type { ColunasCopaCategoria, ColunasTrofeuBlockCategoria } from "@/types/colunas-categorias";
+import { COLUNAS_COPA_SABADO, COLUNAS_TROFEU_BLOCK_DOMINGO } from "./colunas-categorias";
 
 const SPREADSHEET_ID_COPA_SABADO = "10gVZRtkieGq3BigmFqiGZOYK9T_z1xXlGUty6zrqQ9A";
 const SPREADSHEET_ID_COPA_DOMINGO = "1wgMWCajmF8eh3ZvRWGj9lZgYQz5lVAp9WJJ9jzGfxu4";
@@ -13,6 +13,8 @@ export type TipoApresentacao =
   | "Solo B"
   | "Combinado - Domingo"
   | "Combinado - Sábado"
+  | "Bronze"
+  | "Prata";
 
 export interface CategoriaCopaConfig {
   id: string;
@@ -21,6 +23,15 @@ export interface CategoriaCopaConfig {
   abaSheets: string;
   tipo: TipoApresentacao[];
   colunas: ColunasCopaCategoria
+}
+
+export interface CategoriaTrofeuBlockConfig {
+  id: string;
+  nomeExibicao: string;
+  spreadsheetId: string;
+  abaSheets: string;
+  tipo: TipoApresentacao[];
+  colunas: ColunasTrofeuBlockCategoria;
 }
 
 export const DICIONARIO_CATEGORIAS_COPA: Record<string, CategoriaCopaConfig> = {
@@ -416,12 +427,25 @@ export const DICIONARIO_CATEGORIAS_TROFEU: Record<string, CategoriaCopaConfig> =
   },
 }
 
+export const DICIONARIO_CATEGORIAS_TROFEU_DOMINGO: Record<string, CategoriaTrofeuBlockConfig> = {
+  "blocks": {
+    id: "blocks",
+    nomeExibicao: "Competição de Blocks",
+    spreadsheetId: SPREADSHEET_ID_TROFEU,
+    abaSheets: "Blocks",
+    tipo: ["Bronze", "Prata"],
+    colunas: COLUNAS_TROFEU_BLOCK_DOMINGO
+  }
+}
+
 export const listaCategoriasCopaSabado = Object.values(DICIONARIO_CATEGORIAS_COPA).filter(c => c.id.endsWith("-sabado"));
 export const listaCategoriasCopaDomingo = Object.values(DICIONARIO_CATEGORIAS_COPA).filter(c => c.id.endsWith("-domingo"));
 export const listaCategoriasTrofeu = Object.values(DICIONARIO_CATEGORIAS_TROFEU);
+export const listaCategoriasTrofeuBlock = Object.values(DICIONARIO_CATEGORIAS_TROFEU_DOMINGO);
 
 export const TODAS_CATEGORIAS = [
   ...listaCategoriasCopaSabado,
   ...listaCategoriasCopaDomingo,
   ...listaCategoriasTrofeu,
+  ...listaCategoriasTrofeuBlock
 ];

@@ -11,6 +11,7 @@ import EquipesHomePage from "@/pages/home-equipes-page";
 import CopaN1EquipesPage from "@/pages/copa-n1-page.tsx";
 import TrofeuEquipesPage from "@/pages/trofeu-resultados-page";
 import CopaN2EquipesPage from "@/pages/copa-n2-page";
+import CategoriaTrofeuBlockPage from "@/pages/categoria-trofeu-block-page";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +24,8 @@ const router = createBrowserRouter([
       {path: "/equipes", element: <EquipesHomePage />},
       {path: "/equipes/copa-n1", element: <CopaN1EquipesPage />},
       {path: "/equipes/copa-n2", element: <CopaN2EquipesPage />},
-      {path: "/equipes/trofeu", element: <TrofeuEquipesPage />}
+      {path: "/equipes/trofeu", element: <TrofeuEquipesPage />},
+      {path: "/trofeu-sp/categoria/:id", element: <CategoriaTrofeuBlockPage />}
     ],
   },
   {

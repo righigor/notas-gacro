@@ -51,7 +51,7 @@ export interface ResultadoCopa {
   clubeEscola: string;
   prova: string;
   categoria: string;
-  tipo: "Estático" | "Dinâmico" | "Combinado" | "Solo A" | "Solo B" | "Combinado - Domingo" | "Combinado - Sábado";
+  tipo: "Estático" | "Dinâmico" | "Combinado" | "Solo A" | "Solo B" | "Combinado - Domingo" | "Combinado - Sábado" | "Bronze" | "Prata";
   notaA: string;
   notaE: string;
   notaD: string;
