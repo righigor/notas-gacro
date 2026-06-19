@@ -103,19 +103,19 @@ export const DICIONARIO_CATEGORIAS_COPA: Record<string, CategoriaCopaConfig> = {
     tipo: ["Dinâmico", "Estático"],
     colunas: COLUNAS_COPA_SABADO
   },
-  "adu-gf-sabado": {
-    id: "adu-gf-sabado",
+  "adu-df-sabado": {
+    id: "adu-df-sabado",
     nomeExibicao: "Adulto - Grupo Feminino",
     spreadsheetId: SPREADSHEET_ID_COPA_SABADO,
-    abaSheets: "N2 Adu - GF",
+    abaSheets: "N2 Adu - DF",
     tipo: ["Estático", "Dinâmico"],
     colunas: COLUNAS_COPA_SABADO
   },
-  "adu-df-sabado": {
-    id: "adu-df-sabado",
+  "adu-gf-sabado": {
+    id: "adu-gf-sabado",
     nomeExibicao: "Adulto - Dupla Feminina",
     spreadsheetId: SPREADSHEET_ID_COPA_SABADO,
-    abaSheets: "N2 Adu - DF",
+    abaSheets: "N2 Adu - GF",
     tipo: ["Dinâmico", "Estático"],
     colunas: COLUNAS_COPA_SABADO
   },
