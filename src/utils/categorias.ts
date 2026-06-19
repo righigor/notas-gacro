@@ -105,7 +105,7 @@ export const DICIONARIO_CATEGORIAS_COPA: Record<string, CategoriaCopaConfig> = {
   },
   "adu-df-sabado": {
     id: "adu-df-sabado",
-    nomeExibicao: "Adulto - Grupo Feminino",
+    nomeExibicao: "Adulto - Dupla Femenina",
     spreadsheetId: SPREADSHEET_ID_COPA_SABADO,
     abaSheets: "N2 Adu - DF",
     tipo: ["Estático", "Dinâmico"],
@@ -113,7 +113,7 @@ export const DICIONARIO_CATEGORIAS_COPA: Record<string, CategoriaCopaConfig> = {
   },
   "adu-gf-sabado": {
     id: "adu-gf-sabado",
-    nomeExibicao: "Adulto - Dupla Feminina",
+    nomeExibicao: "Adulto - Grupo Feminino",
     spreadsheetId: SPREADSHEET_ID_COPA_SABADO,
     abaSheets: "N2 Adu - GF",
     tipo: ["Dinâmico", "Estático"],
@@ -200,19 +200,19 @@ export const DICIONARIO_CATEGORIAS_COPA: Record<string, CategoriaCopaConfig> = {
     tipo: ["Combinado"],
     colunas: COLUNAS_COPA_SABADO
   },
-  "adu-gf-domingo": {
-    id: "adu-gf-domingo",
-    nomeExibicao: "Final - Adulto - Grupo Feminino",
+  "adu-df-domingo": {
+    id: "adu-df-domingo",
+    nomeExibicao: "Final - Adulto - Dupla Feminia",
     spreadsheetId: SPREADSHEET_ID_COPA_DOMINGO,
-    abaSheets: "N2 Adu - GF",
+    abaSheets: "N2 Adu - DF",
     tipo: ["Combinado"],
     colunas: COLUNAS_COPA_SABADO
   },
-  "adu-df-domingo": {
-    id: "adu-df-domingo",
-    nomeExibicao: "Final - Adulto - Dupla Feminina",
+  "adu-gf-domingo": {
+    id: "adu-gf-domingo",
+    nomeExibicao: "Final - Adulto - Grupo Femino",
     spreadsheetId: SPREADSHEET_ID_COPA_DOMINGO,
-    abaSheets: "N2 Adu - DF",
+    abaSheets: "N2 Adu - GF",
     tipo: ["Combinado"],
     colunas: COLUNAS_COPA_SABADO
   },
